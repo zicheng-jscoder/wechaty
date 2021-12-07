@@ -7,7 +7,7 @@ class Robot {
   robot: WechatyType
   constructor() {
     this.robot = new Wechaty({
-      name: this.name // generate xxxx.memory-card.json and save login data for the next login
+      name: this.name, // generate xxxx.memory-card.json and save login data for the next login
     })
     this.init()
   }
@@ -33,7 +33,7 @@ class Robot {
     require('qrcode-terminal').generate(qrcode) // 在console端显示二维码
     const qrcodeImageUrl = [
       'https://wechaty.js.org/qrcode/',
-      encodeURIComponent(qrcode)
+      encodeURIComponent(qrcode),
     ].join('')
     console.log(qrcodeImageUrl)
   }
@@ -47,7 +47,7 @@ class Robot {
     console.log('退出')
   }
   //   监听消息
-  onMessage<T>(msg: T) {
+  onMessage(msg: Message) {
     console.log(msg)
   }
   getRobot() {
